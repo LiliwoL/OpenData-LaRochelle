@@ -1,5 +1,5 @@
 axios.get(
-    './shell/BusStops.json',
+    'BusStops.json',
     {
         headers: {
             "Cache-Control": "no-cache",
@@ -10,6 +10,7 @@ axios.get(
     .then(function (response) {
         // handle success
         console.clear();
+        console.log
 
         response.json().then(data => {
             console.log(data);
