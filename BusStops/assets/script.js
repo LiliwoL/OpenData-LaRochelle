@@ -10,17 +10,13 @@ axios.get(
     .then(function (response) {
         // handle success
         console.clear();
-        console.log
 
-        response.json().then(data => {
-            console.log(data);
-            data.forEach(busStop => {
-                console.log(busStop);
-                // Create a marker and add it to the map
-                //var marker = L.marker([51.5, -0.09]).addTo(map);
-                var marker = L.marker([busStop.lat, busStop.lon]).addTo(map);
-                marker.bindPopup(busStop.name);
-            });
+        console.log(response.data);
+
+        response.data.forEach(busStop => {
+            // Create a marker and add it to the map
+            let marker = L.marker([busStop.Latitude, busStop.Longitude]).addTo(map);
+            marker.bindPopup(`<b>${busStop.Name}</b><br>${busStop.Id}`);
         });
 
     })
